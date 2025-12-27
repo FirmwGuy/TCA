@@ -1,4 +1,6 @@
 # The Weave Governance Constitution FAQ (Expanded)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **WEAVE = Web of Evidence, Accountability, Versioning, Exit**
 
 **Version:** v0.2 (FAQ)  

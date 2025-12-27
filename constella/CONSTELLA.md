@@ -1,5 +1,6 @@
-# Constella
-**CONSTELLA = Commons Offers Network — Signed Trust, Evidence, Ledgers, Lanes, Agreements**
+# CONSTELLA (Commons Offers Network — Signed Trust, Evidence, Ledgers, Lanes, Agreements)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 
 People-first coordination across **Commons (public discussion)**, **Agora (market matching)**, and **Arena (leagues + matchmaking)**, built on a shared core of **relationships, culture, and trust**.
 
@@ -7,7 +8,7 @@ People-first coordination across **Commons (public discussion)**, **Agora (marke
 
 ## 1. Summary
 
-Constella is a distributed social system where:
+CONSTELLA is a distributed social system where:
 
 - **People (personas)** are the primary anchors.
 - **Claims, offers, rules, and outcomes** are durable objects.
@@ -16,11 +17,11 @@ Constella is a distributed social system where:
 - **Culture** is configurable through policy packages (governance + incentives + safety).
 - **Speech is cheap, influence is earned** (Sybil/AI-resistant by design).
 
-Constella’s three flagship experiences share the same primitives:
+CONSTELLA’s three flagship experiences share the same primitives:
 
-1. **Constella Commons**: topical public discussion that yields durable, navigable knowledge.
-2. **Constella Agora**: consentful provider↔customer matching (intents/offers), with stakes to price out spam.
-3. **Constella Arena**: leagues and balanced matchmaking, where **integrity** is first-class and players have a **right to doubt** via structured, rate-limited challenges.
+1. **CONSTELLA Commons**: topical public discussion that yields durable, navigable knowledge.
+2. **CONSTELLA Agora**: consentful provider↔customer matching (intents/offers), with stakes to price out spam.
+3. **CONSTELLA Arena**: leagues and balanced matchmaking, where **integrity** is first-class and players have a **right to doubt** via structured, rate-limited challenges.
 
 ---
 
@@ -37,7 +38,7 @@ Constella’s three flagship experiences share the same primitives:
 ### 2.2 Non-goals (initially)
 - Perfect anonymity with global reach and zero abuse (incompatible requirements).
 - Fully P2P everything from day one (federation-first is more practical).
-- “Detect AI” as a primary defense. Constella targets cheap influence, not text origin.
+- “Detect AI” as a primary defense. CONSTELLA targets cheap influence, not text origin.
 
 ---
 
@@ -77,7 +78,7 @@ Constella’s three flagship experiences share the same primitives:
 
 ## 5. Architecture overview
 
-Constella is best modeled as:
+CONSTELLA is best modeled as:
 
 - **Append-only event log** (source of truth), plus
 - **graph projections** (fast query/read models), plus
@@ -397,7 +398,7 @@ Trust should be computed as a **vector** per scope (topic/category/game-mode), e
 
 ---
 
-## 10. Duties and community resources (the Constella Cloud)
+## 10. Duties and community resources (the CONSTELLA Cloud)
 
 Members contribute civic duties; duties taper after probation but persist in lighter form.
 
@@ -431,7 +432,7 @@ Credits are earned by duties and spent on:
 
 ---
 
-## 11. Constella Commons (public discussions)
+## 11. CONSTELLA Commons (public discussions)
 
 ### 11.1 Workflow
 
@@ -469,7 +470,7 @@ Each artifact:
 
 ---
 
-## 12. Constella Agora (market matching)
+## 12. CONSTELLA Agora (market matching)
 
 Agora replaces broadcast advertising with **consentful matching**.
 
@@ -501,7 +502,7 @@ At the end of a deal:
 
 ---
 
-## 13. Constella Arena (leagues + matchmaking + integrity)
+## 13. CONSTELLA Arena (leagues + matchmaking + integrity)
 
 Arena treats **integrity** as a first-class system to address cheats and “too-easy wins” distrust.
 
@@ -556,7 +557,7 @@ Optimize across:
 
 ## 14. Matching engine (shared by Agora and Arena)
 
-Constella uses a general **constraint + scoring** matcher.
+CONSTELLA uses a general **constraint + scoring** matcher.
 
 ### 14.1 Inputs
 
@@ -659,7 +660,7 @@ Because data is signed and content-addressed, communities can:
 
 ## 18. MVP roadmap (practical sequencing)
 
-### Phase 1: Constella Core + Commons MVP
+### Phase 1: CONSTELLA Core + Commons MVP
 
 * Personas + signed events
 * Topic contexts + message posting
@@ -687,7 +688,7 @@ Because data is signed and content-addressed, communities can:
 * integrity challenges + jury review
 * participation bonds + reliability metrics
 
-### Phase 5: Constella Cloud + Federation
+### Phase 5: CONSTELLA Cloud + Federation
 
 * encrypted shard storage + audits
 * index/compute nodes (optional)
@@ -707,4 +708,4 @@ Because data is signed and content-addressed, communities can:
 
 ## 20. One-sentence product definition
 
-**Constella is a people-centered, trust-weighted, versioned social graph that turns interaction into durable agreements, fair markets, and credible competitive play—without letting cheap identities or automation hijack communal reality.**
+**CONSTELLA is a people-centered, trust-weighted, versioned social graph that turns interaction into durable agreements, fair markets, and credible competitive play—without letting cheap identities or automation hijack communal reality.**

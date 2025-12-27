@@ -1,4 +1,6 @@
 # NEXUS-POLICIES v0.1 — Policy Artifact Schemas for NEXUS
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Status:** Draft for implementation  
 **Last updated:** 2025-12-27  
 **Companion specs:** PRISM v1.0, NEXUS v1.0, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1

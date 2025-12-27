@@ -1,4 +1,6 @@
 # Trust Commons Accord (TCA) — FAQ
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Version:** v0.1 — Draft  
 **Last updated:** 2025-12-26  
 
@@ -182,11 +184,11 @@ TCA treats “credible exit” as a safeguard: communities must be able to fork 
 
 ---
 
-## 22) How do DIYA and Constella fit?
+## 22) How do DIYA and CONSTELLA fit?
 They are “platforms on top” that benefit from TCA invariants:
 
 - DIYA emphasizes selective disclosure and signed provenance (“public nutrition label” + encrypted deep record; commit–reveal prompts; signatures for integrity).
-- Constella emphasizes anti‑capture: “speech is cheap, influence is earned,” versioned objects, structured dispute/outcomes, and forkability.
+- CONSTELLA emphasizes anti‑capture: “speech is cheap, influence is earned,” versioned objects, structured dispute/outcomes, and forkability.
 
 Both align naturally with TCA’s trust-first constitution.
 
@@ -218,7 +220,7 @@ Suggested order:
 3) NEXUS (canonical vs derived; safety before ranking; runtime neutrality)
 4) PSR (deterministic rendering)
 5) CEP Implementation Reference (deterministic kernel + replay)
-6) DIYA / Constella (example upper-layer products that benefit from TCA)
+6) DIYA / CONSTELLA (example upper-layer products that benefit from TCA)
 
 ---
 

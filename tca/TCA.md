@@ -1,4 +1,6 @@
 # The Trust Commons Accord
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 
 **TCA v0.1 — Draft**
 *A constitution for shared meaning, accountable intelligence, and earned trust.*
@@ -189,7 +191,7 @@ Drafts, analyses, candidate bundles, and ephemeral suggestions that are not publ
 
 ### 6.3 Personas and delegation
 
-A “human principal” may operate through personas or roles (e.g., Constella personas), but responsibility must remain attributable to an accountable human or accountable organization.
+A “human principal” may operate through personas or roles (e.g., CONSTELLA personas), but responsibility must remain attributable to an accountable human or accountable organization.
 
 ---
 
@@ -322,7 +324,7 @@ If governance is captured, participants MUST retain a credible path to exit:
 * reproduce history and legitimacy evidence,
 * continue under a new governance regime.
 
-Constella calls forkability out as a core principle: signed/content-addressed data enables communities to fork if governance is captured.
+CONSTELLA calls forkability out as a core principle: signed/content-addressed data enables communities to fork if governance is captured.
 
 ---
 
@@ -330,7 +332,7 @@ Constella calls forkability out as a core principle: signed/content-addressed da
 
 Trust cannot be granted by loudness, volume, or automation.
 
-Constella’s design goal is explicit: “Speech is cheap, influence is earned” and “rights come with duties”.
+CONSTELLA’s design goal is explicit: “Speech is cheap, influence is earned” and “rights come with duties”.
 
 ### 10.1 Rights (minimum)
 
@@ -338,7 +340,7 @@ In any TCA-aligned Commons, participants MUST have:
 
 * **Right to legible rules** (declarations and policies must be visible)
 * **Right to contest and appeal** (due process pathways exist and are auditable)
-* **Right to doubt (without harassment)**—structured challenges, rate limits, penalties for abuse (Constella)
+* **Right to doubt (without harassment)**—structured challenges, rate limits, penalties for abuse (CONSTELLA)
 * **Right to choose lenses** (global discovery must not force a single regime)
 * **Right to credible exit** (forkability)
 
@@ -352,7 +354,7 @@ Contexts MAY require duties proportional to the influence they grant, including:
 * bonds/stakes,
 * calibrated civic tasks.
 
-(Constella gives a concrete duty model (storage/review/compute/bond/vouching), but TCA leaves exact economics to charters and profiles.)
+(CONSTELLA gives a concrete duty model (storage/review/compute/bond/vouching), but TCA leaves exact economics to charters and profiles.)
 
 ---
 
@@ -471,9 +473,9 @@ DIYA frames trust in creative work as:
 * privacy by design,
   with selective disclosure patterns like public labels + encrypted deep records and commit–reveal prompts.
 
-### A.2 Social trust (Constella)
+### A.2 Social trust (CONSTELLA)
 
-Constella frames trust as:
+CONSTELLA frames trust as:
 
 * people as anchors, claims as durable atoms,
 * scoped trust converting participation into influence,

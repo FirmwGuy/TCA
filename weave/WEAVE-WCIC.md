@@ -1,4 +1,6 @@
 # WEAVE Culture Interface Charter (WCIC)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Version:** v0.1 — Draft  
 **Status:** Proposed WEAVE charter (normative, human-facing)  
 **Audience:** Nodes, Context stewards, moderators/ombuds, implementers claiming “WEAVE-compliant” operation  

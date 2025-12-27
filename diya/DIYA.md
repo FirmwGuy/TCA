@@ -1,4 +1,6 @@
 # DIYA (Do It Yourself Adventure)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 ## Conceptual Specification v0.1
 
 DIYA is a creative platform and community centered on **human intent + human seed + iterative craft**, where AI is used as a **workshop partner** (critique, variants, translation, refinement) rather than a replacement for authorship. DIYA’s core innovation is making **process, provenance, licensing, and versioning** first-class—so creators and platforms can collaborate safely and transparently.

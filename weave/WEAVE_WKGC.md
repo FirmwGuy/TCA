@@ -1,4 +1,6 @@
 # WEAVE Addendum — Knowledge Commons Governance for PRISM + NEXUS (WKGC)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Version:** 0.1 — replaces prior WKGC drafts; no legacy compatibility assumed  
 **Status:** Implementation-oriented addendum (binding when adopted by a Node or Context)  
 **Applies to:** WEAVE Nodes operating a communitarian claim-graph knowledgebase  

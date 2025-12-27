@@ -1,4 +1,6 @@
 # NEXUS v1.0 — Claim Graph Knowledgebase Runtime (Discovery + Projections + Ingestion)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **NEXUS = Neutral Engine for eXecutable, User‑Scoped Search**
 **Status:** Draft for implementation 
 **Last updated:** 2025-12-26  

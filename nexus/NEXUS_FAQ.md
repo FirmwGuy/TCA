@@ -1,4 +1,6 @@
 # NEXUS FAQ
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **NEXUS = Neutral Engine for eXecutable, User‑Scoped Search**
 **Applies to:** NEXUS v1.0  
 **Companion specs:** PRISM v1.0, PSR v0.1, NEXUS-POLICIES v0.1, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1  

@@ -1,4 +1,6 @@
 # PSA v0.1 — PRISM Semantic Analyzer Specification
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Status:** Draft for implementation  
 **Last updated:** 2025-12-26  
 **Scope:** Converting human-authored text (reports, writings, messages) into **candidate semantic structures** (candidate claims, entity candidates, meaning mapping suggestions) suitable for insertion into NEXUS review lanes.

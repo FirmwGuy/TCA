@@ -1,4 +1,6 @@
 # WEAVE Addendum — Charter Library for PRISM + NEXUS Commons (WCL)
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Version:** 0.1
 **Status:** Draft for implementation; binding when adopted by a Context  
 **Companion specs:** WEAVE Constitution + WCIC, PRISM v1.0, NEXUS v1.0, NEXUS-POLICIES v0.1, WKGC v0.1  

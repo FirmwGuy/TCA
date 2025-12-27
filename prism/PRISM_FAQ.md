@@ -1,4 +1,6 @@
 # PRISM FAQ
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Applies to:** PRISM v1.0 
 **Last updated:** 2025-12-26
 

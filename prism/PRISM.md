@@ -1,4 +1,6 @@
 # PRISM v1.0 — Protocol for Reproducible Interchange of Statements & Meanings
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 **Status:** Draft for implementation  
 **Last updated:** 2025-12-26  
 **Audience:** implementers of semantic packs, claim/evidence publishers, validators, and downstream stores/indexers (e.g., fact graph engines)

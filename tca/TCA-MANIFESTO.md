@@ -1,4 +1,6 @@
 # The Trust Commons Manifesto
+SPDX-FileCopyrightText: © 2025–present Victor M. Barrientos <firmw.guy@gmail.com>
+SPDX-License-Identifier: CC-BY-SA-4.0
 
 **TCA Manifesto v0.1**
 *An invitation to build systems where trust survives the age of AI.*
