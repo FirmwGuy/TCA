@@ -1,5 +1,5 @@
 # WEAVE Culture Interface Charter (WCIC)
-**Version:** v0.1 (Draft)  
+**Version:** v0.1 — Draft  
 **Status:** Proposed WEAVE charter (normative, human-facing)  
 **Audience:** Nodes, Context stewards, moderators/ombuds, implementers claiming “WEAVE-compliant” operation  
 **Purpose:** Specify the **human/community-facing interface** that a system must provide so WEAVE governance is real: legible, contestable, repairable, and resistant to capture.
@@ -40,6 +40,7 @@ Every **Node** and every **Context** must publish a declaration.
 - safety escalation process and emergency exit process
 - policy for identity, signatures, and key recovery
 - retention / historicity policy summary (“what we keep, what we summarize, what we prune”)
+- default replay window declaration (how long audits can expect reconstruction to be possible)
 
 ### 2.2 Context Declaration (minimum)
 A context is a specific space (topic room, market room, match room, gallery lane).
@@ -48,6 +49,7 @@ Each Context must declare:
 
 - purpose and scope
 - adopted charters and local parameters
+- adopted charter hashes (`charters[]`) when operating under PRISM+NEXUS (so conformance can be checked mechanically)
 - **Meaning strictness level** (M0–M3)
 - which actions are “high-impact” in this context
 - required receipts for high-impact actions
@@ -213,4 +215,3 @@ This interface exists to ensure:
 - history is truthful,
 - dissent is treated as immune response,
 - and repair is a real pathway—not rhetoric.
-

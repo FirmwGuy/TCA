@@ -1,5 +1,7 @@
 # WEAVE Governance Profile
-**Version:** v0.1 (Draft)  
+**WEAVE = Web of Evidence, Accountability, Versioning, Exit**
+
+**Version:** v0.1 — Draft  
 **Status:** Living document — designed to evolve without lying about its past. 
 **Role under TCA:** Default governance profile under **The Trust Commons Accord (TCA)**.
 
@@ -33,14 +35,14 @@ The **Trust Commons Accord (TCA)** is the constitutional layer that defines the 
 **WEAVE is not the constitution.**  
 WEAVE is a **governance profile**: a default, executable way for a community to create legitimacy through *contexts, receipts/outcomes, due process, and earned influence*.
 
-### Relationship to PRISM, NEXUS, CEP, and CEP Praxis
+### Relationship to PRISM, NEXUS, CEP, and PRAXIS
 
 WEAVE assumes (and is designed to work best with):
 
 - **PRISM** for explicit meaning, verifiability levels, and content‑addressed artifacts.
 - **NEXUS** (or an equivalent engine) to execute WEAVE contexts and policies over canonical artifacts and derived projections.
 - **CEP Substrate** (optional but recommended) to provide deterministic runtime semantics, replayable decision trails, and enforceable security boundaries.
-- **CEP Praxis** (optional) as a non‑sovereign intelligence layer that can assist with analysis (e.g., PSA‑style extraction, summaries, triage), without becoming a governor.
+- **PRAXIS** (optional) as a non‑sovereign intelligence layer that can assist with analysis (e.g., PSA‑style extraction, summaries, triage), without becoming a governor.
 
 ### Constitutional compliance rule
 
@@ -216,7 +218,7 @@ Automation can assist, but it cannot be allowed to create deniable power.
 Some information cannot be safely made default‑visible or default‑learnable.
 
 - Contexts MUST support declaring **sensitivity** (e.g., private / restricted / delicate / secret / can’t‑unsee) at least at the context level and, when feasible, at the artifact/evidence level.
-- Access to delicate/secret/can’t‑unsee material by automated agents SHOULD require an explicit, purpose‑bound authorization (e.g., a **Sealed Access Dossier**) that binds scope, duration, non‑retention, non‑federation, and auditability obligations.
+- Access to delicate/secret/can’t‑unsee material by automated agents SHOULD require an explicit, purpose‑bound authorization (e.g., a **Sealed Access Dossier**) that binds scope, duration, non‑retention, non‑federation, and auditability obligations (recommended representation: PRISM `SealedAccessDossier` artifact per TCA).
 - Systems SHOULD support **graduated disclosure**: public summaries and redacted receipts where appropriate, with protected deep records for legitimate audits.
 - Redaction is allowed to protect the vulnerable and prevent doxxing, but “clean history” is not: rationale trails and the existence of decisions must remain visible.
 
@@ -468,10 +470,12 @@ All amendments must preserve:
 - Membership cycle definition
 - Ombuds contact method
 - Emergency exit process
+- Retention / historicity policy summary (“what we keep, what we summarize, what we prune”)
+- Default replay window declaration (how long audits can expect reconstruction to be possible)
 
 ## B. Context Declaration (minimum)
 - Context name and purpose
-- Required/optional Charters
+- Required/optional Charters (as declared charter hashes when operating under PRISM+NEXUS)
 - Meaning strictness level (M0–M3)
 - Influence budgets (endorsements/outreach/challenges)
 - Evidence expectations for decisions and disputes
@@ -491,8 +495,8 @@ It will be judged not by rhetoric, but by whether it produces **livable, corrigi
 ---
 
 # Addendum — Corruption, Negotiation, Minimum Node Formation, and Harm‑Response Constellations
-**Applies to:** *WEAVE Governance Profile* (v0.1 Draft)  
-**Addendum ID:** v0.1‑A (Draft)  
+**Applies to:** *WEAVE Governance Profile* v0.1 — Draft  
+**Addendum ID:** v0.1‑A — Draft  
 **Status:** This addendum is binding **when adopted** by a Node/Context or ratified by an Assembly. It does not weaken the Bones; it clarifies implementation details.
 
 ---
@@ -807,8 +811,8 @@ Host Nodes / Assemblies MAY:
 ---
 
 # Addendum — Tissue Governance, Evolution, and Plural Local Institutions (Including Markets)
-**Applies to:** *WEAVE Governance Profile* (v0.1 Draft)  
-**Addendum ID:** v0.1‑B (Draft)  
+**Applies to:** *WEAVE Governance Profile* v0.1 — Draft  
+**Addendum ID:** v0.1‑B — Draft  
 **Status:** Binding **when adopted** by a Node/Context or ratified by an Assembly.
 
 ---

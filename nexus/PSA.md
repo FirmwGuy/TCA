@@ -125,10 +125,12 @@ A PSA run MUST accept a single input bundle object:
 
   "lens": {
     "contexts": ["weave:context:..."],
-    "policy_hashes": {
-      "projection_policy": "sha256:...",   // optional
+    "policies": {
+      "ingestion_policy": "sha256:...",    // optional, recommended
+      "safety_policy": "sha256:...",       // optional, recommended
+      "quality_policy": "sha256:...",      // optional
       "admission_policy": "sha256:...",    // optional
-      "safety_policy": "sha256:..."        // optional, recommended
+      "projection_policy": "sha256:..."    // optional
     }
   },
 

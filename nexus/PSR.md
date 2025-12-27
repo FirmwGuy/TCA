@@ -78,7 +78,13 @@ Given:
 - the same `RenderBundle` bytes,
 - the same `TemplateLibrary` bytes,
 - the same PSR version,
-PSR MUST produce **byte-identical output** for the chosen output format.
+PSR MUST produce **byte-identical output** for audit-grade render targets.
+
+Normative v0.1 audit-grade targets:
+- `RenderedPage.blocks` (when emitted): MUST be identical as an ordered block list.
+- `RenderedPage.content` when `format` is `markdown` or `plaintext`: MUST be byte-identical.
+
+HTML output (`format == "html"`) is OPTIONAL in v0.1; implementations MUST NOT rely on host-specific locale/timezone formatting or non-canonical HTML serializers in any path they claim is audit-grade.
 
 ---
 
@@ -134,16 +140,21 @@ A RenderBundle is a JSON object:
   "bundle_id": "sha256:...",
   "generated_at": "2025-12-26T00:00:00Z",
 
-  "lens": {
-    "lens_id": "sha256:...",
-    "contexts": [{ "context_id": "weave:context:...", "declaration_hash": "sha256:..." }],
-    "policies": {
-      "projection_policy": "sha256:...",
-      "safety_policy": "sha256:...",
-      "ranking_policy": "sha256:..."
-    },
-    "editions": ["sha256:..."]
-  },
+	  "lens": {
+	    "lens_id": "sha256:...",
+	    "contexts": [{ "context_id": "weave:context:...", "declaration_hash": "sha256:..." }],
+	    "policies": {
+	      "safety_policy": "sha256:...",
+	      "ranking_policy": "sha256:...",
+	      "quality_policy": "sha256:...",
+	      "admission_policy": "sha256:...",
+	      "service_policy": "sha256:...",
+	      "index_policy": "sha256:...",
+	      "projection_policy": "sha256:...",
+	      "ingestion_policy": "sha256:..."
+	    },
+	    "editions": ["sha256:..."]
+	  },
 
   "page": {
     "page_kind": "meaning | entity | event | digest",
@@ -407,6 +418,8 @@ PTL may optionally support pure formatting functions with no external state:
 
 Functions MUST be deterministic and side-effect free.
 
+Formatting functions MUST NOT depend on host locale/timezone libraries. If `locale` is provided, it MAY be used only to select between **explicitly specified** deterministic formats; unknown locales MUST fall back to the deterministic defaults in §8.4.
+
 ---
 
 ## 8. Rendering algorithm (normative)
@@ -466,9 +479,9 @@ Object forms:
 
 Literal datatype minimum formatting:
 - `string`: as-is (escaped as needed)
-- `number`: locale format
-- `date`: ISO → locale format
-- `datetime`: ISO → locale format
+- `number`: canonical decimal string (no thousands separators)
+- `date`: ISO date string as provided (recommended `YYYY-MM-DD`)
+- `datetime`: ISO datetime string as provided (recommended UTC `...Z`)
 - `url`: display as URL (optionally link)
 - `hash`: display short hash
 
@@ -550,6 +563,8 @@ PSR MUST NOT create new propositional content beyond:
 TemplateLibrary entries MUST be language-tagged.
 
 PSR SHOULD support BCP-47 tags (e.g., `en`, `pt-BR`, `fr`).
+
+Locale-specific formatting (dates/numbers) SHOULD be handled upstream (e.g., by supplying localized labels/literals in the RenderBundle). PSR’s built-in formatting MUST remain deterministic per §8.4.
 
 ### 11.2 Avoid runtime machine translation
 PSR MUST NOT silently translate via online services. Any translation is:

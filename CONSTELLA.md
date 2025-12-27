@@ -1,4 +1,6 @@
 # Constella
+**CONSTELLA = Commons Offers Network — Signed Trust, Evidence, Ledgers, Lanes, Agreements**
+
 People-first coordination across **Commons (public discussion)**, **Agora (market matching)**, and **Arena (leagues + matchmaking)**, built on a shared core of **relationships, culture, and trust**.
 
 ---

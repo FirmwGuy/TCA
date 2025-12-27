@@ -1,7 +1,7 @@
 # WEAVE Addendum — Charter Library for PRISM + NEXUS Commons (WCL)
 **Version:** 0.1
 **Status:** Draft for implementation; binding when adopted by a Context  
-**Companion specs:** WEAVE Constitution + WCIC, PRISM v1.0, NEXUS v1.0, WKGC v0.1  
+**Companion specs:** WEAVE Constitution + WCIC, PRISM v1.0, NEXUS v1.0, NEXUS-POLICIES v0.1, WKGC v0.1  
 **Last updated:** 2025-12-26
 
 ---
@@ -39,6 +39,8 @@ Charters SHOULD be machine-readable enough for **conformance checking**, but the
 
 ### 1.2 Policy
 A **Policy** is a machine-executed artifact body (e.g., SafetyPolicy, RankingPolicy) that NEXUS runs to gate and rank results.
+
+Normative policy artifact schemas are defined in `nexus/NEXUS-POLICIES.md`.
 
 A charter may require specific policy adoption, but does not replace the policy.
 
@@ -82,7 +84,7 @@ A Charter body MUST include:
 
 Normative notes:
 - `charter_id` is human-friendly; identity is the artifact hash.
-- Charters MUST be immutable once published (updates are new artifacts that may supersede prior ones).
+- Charters MUST be immutable once published. Updates are new artifacts that may supersede prior ones.
 
 ### 2.2 Charter adoption receipt
 Recommended:
@@ -103,7 +105,7 @@ Minimum body:
 ```
 
 A charter is **active** in a context iff:
-- it is referenced by the ContextDeclaration, AND
+- it is listed in the ContextDeclaration `charters[]` for that context (see WKGC ContextDeclaration minimum schema), AND
 - an active CharterAdoptionReceipt exists, AND
 - the charter artifact is locally available and hash-verified.
 

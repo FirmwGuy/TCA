@@ -1,6 +1,6 @@
 # The Trust Commons Accord
 
-**TCA v0.1 (Draft)**
+**TCA v0.1 — Draft**
 *A constitution for shared meaning, accountable intelligence, and earned trust.*
 
 ---
@@ -33,7 +33,7 @@ TCA is the **constitutional layer** of a stack that includes:
 * **Governance Profiles** (default: **WEAVE**),
 * **NEXUS** (policy-executing storage/query/discovery/projection runtime),
 * **CEP Substrate** (deterministic runtime and enforcement substrate),
-* optional agent/learning layers (e.g., **CEP Praxis**).
+* optional agent/learning layers (e.g., **PRAXIS**).
 
 PRISM explicitly does **not** define governance or execution; those belong to governance and runtime layers. TCA defines the **non-negotiable invariants** that these layers must respect.
 
@@ -144,6 +144,8 @@ Systems adopting TCA MUST maintain a **hard boundary** between:
 
 Derived products MUST be discardable without loss of canonical meaning and provenance-tagged to canonical inputs.
 
+Derived products MAY be **persisted** as artifacts for audit/replay convenience (e.g., snapshots or candidate bundles), but persistence does not grant authority: they remain derived, provenance-tagged, and reconstructible within declared replay windows.
+
 ### 5.2 Safety before relevance
 
 Discovery and projection MUST enforce:
@@ -183,7 +185,7 @@ Constitutional intent:
 
 Drafts, analyses, candidate bundles, and ephemeral suggestions that are not published as canonical artifacts MAY be produced without signature—provided they remain non-canonical and non-authoritative.
 
-(Consistent with NEXUS’s explicit classification of CandidateBundles as derived unless stored as artifacts by policy.)
+(Consistent with NEXUS treating CandidateBundles as derived products; they may be persisted as non-claim artifacts for audit, but they remain derived and non-authoritative.)
 
 ### 6.3 Personas and delegation
 
@@ -216,6 +218,46 @@ For sensitive/delicate/can’t-unsee content, AI access MUST be mediated by a **
 * auditability.
 
 This is constitutional because “can’t-unsee” failure modes are irreversible; access must therefore be explicit, scoped, and accountable.
+
+#### 7.2.1 Recommended SAD interface (minimum)
+
+Implementations MAY represent a SAD as a PRISM extension artifact type (recommended):
+- `artifact_type = "SealedAccessDossier"`
+
+Minimum body (example):
+
+```json
+{
+  "sad": {
+    "context_id": "weave:context:...",
+
+    "subject": { "kind": "agent | human | role", "id": "did:key:..." },
+    "purpose": { "text": "Why access is requested.", "lang": "en" },
+
+    "scope": {
+      "artifacts": ["sha256:..."],
+      "content_classes": ["claims","media","software","pii_directory","dataset","other"]
+    },
+
+    "duration": { "not_before": "2025-12-26T00:00:00Z", "not_after": "2025-12-27T00:00:00Z" },
+
+    "obligations": {
+      "non_retention": true,
+      "non_federation": true,
+      "redaction_required": true,
+      "no_training": true
+    },
+
+    "audit": {
+      "log_access": true,
+      "access_log_visibility": "public_summary | restricted",
+      "replay_window_seconds": 2592000
+    }
+  }
+}
+```
+
+Governance profiles (e.g., WEAVE/WKGC) define who may issue SADs and how disputes/appeals apply.
 
 ### 7.3 Selective disclosure
 
@@ -393,6 +435,7 @@ Implementations SHOULD publish conformance evidence that:
 * safety/PVL gating precedes ranking,
 * UI/search cannot become governor,
 * sensitive content does not leak into derived indexes,
+* Human Commons authorship constraints are enforced (AI-assisted canonical writes require an accountable human principal authorization),
 * deterministic/replay properties are maintained for governance-relevant operations.
 
 ---
@@ -445,6 +488,7 @@ These are not just product ideas—they are constitutional intuitions about trus
 
 * **Canonical artifact**: durable meaning-bearing input (claims, packs, evidence, governance artifacts).
 * **Derived product**: index/ranking/page/embedding/candidate output; discardable and reconstructible.
+* **Persisted-derived artifact**: a derived product stored as an artifact for audit/convenience; still derived and non-authoritative.
 * **Context**: governance scope defining legitimacy.
 * **Lens**: a view over contexts and policies; prevents global control.
 * **HC**: Human Commons.

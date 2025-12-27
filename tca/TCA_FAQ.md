@@ -1,8 +1,8 @@
 # Trust Commons Accord (TCA) — FAQ
-**Version:** v0.1 (Draft)  
+**Version:** v0.1 — Draft  
 **Last updated:** 2025-12-26  
 
-This FAQ explains the Trust Commons Accord (TCA) and how it relates to PRISM, WEAVE, NEXUS, CEP Substrate, and **CEP Praxis** (the non‑sovereign intelligence layer).
+This FAQ explains the Trust Commons Accord (TCA) and how it relates to PRISM, WEAVE, NEXUS, CEP Substrate, and **PRAXIS** (the non‑sovereign intelligence layer).
 
 ---
 
@@ -93,8 +93,10 @@ This is how “auditability” becomes real, not just aspirational.
 
 ---
 
-## 11) What is CEP Praxis?
-**CEP Praxis** is a **non‑sovereign intelligence layer** for analysis, extraction, pattern discovery, and assistance—never legitimacy.
+## 11) What is PRAXIS?
+**PRAXIS** is a **non‑sovereign intelligence layer** for analysis, extraction, pattern discovery, and assistance—never legitimacy.
+
+Earlier drafts referred to this as the CEP intelligence layer.
 
 Praxis may generate suggestions (e.g., PSA candidate bundles, drafts), but it cannot *make anything count* by itself.
 
@@ -162,7 +164,7 @@ Determinism protects **replayability of authority-relevant outcomes**, not infin
 GC pruning, summarization, and deletion are acceptable if:
 - the retention policy is explicit,
 - pruning actions are logged as events,
-- and the system preserves enough canonical evidence/explanations to audit outcomes within declared replay windows.
+- and the system preserves enough canonical evidence/explanations to audit outcomes within declared replay windows (declared in Node/Context declarations; e.g., `ContextDeclaration.replay.replay_window_seconds` in WKGC-style contexts).
 
 ---
 

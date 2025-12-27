@@ -1,8 +1,8 @@
 # WEAVE Addendum — Knowledge Commons Governance for PRISM + NEXUS (WKGC)
-**Version:** 0.1 (new line; replaces prior WKGC drafts; no legacy compatibility assumed)  
+**Version:** 0.1 — replaces prior WKGC drafts; no legacy compatibility assumed  
 **Status:** Implementation-oriented addendum (binding when adopted by a Node or Context)  
 **Applies to:** WEAVE Nodes operating a communitarian claim-graph knowledgebase  
-**Companion specs:** PRISM v1.0 (new redesign), NEXUS v1.0 (new redesign)  
+**Companion specs:** PRISM v1.0, NEXUS v1.0, NEXUS-POLICIES v0.1  
 **Last updated:** 2025-12-26
 
 ---
@@ -136,13 +136,19 @@ A ContextDeclaration body MUST include:
     },
 
     "policies": {
-      "safety_policy": { "artifact_hash": "sha256:..." },
-      "ranking_policy": { "artifact_hash": "sha256:..." },
-      "quality_policy": { "artifact_hash": "sha256:..." },
-      "admission_policy": { "artifact_hash": "sha256:..." },
-      "service_policy": { "artifact_hash": "sha256:..." },
-      "index_policy": { "artifact_hash": "sha256:..." }
+      "safety_policy": "sha256:...",
+      "ranking_policy": "sha256:...",
+      "quality_policy": "sha256:...",
+      "admission_policy": "sha256:...",
+      "service_policy": "sha256:...",
+      "index_policy": "sha256:...",
+      "projection_policy": "sha256:...",
+      "ingestion_policy": "sha256:..."
     },
+
+    "charters": [
+      { "charter_hash": "sha256:...", "required": true }
+    ],
 
     "membrane": {
       "pack_allowlist": [ "sha256:..." ],
@@ -165,6 +171,14 @@ A ContextDeclaration body MUST include:
       "anti_harassment_controls": { "rate_limits": true, "budgeted_actions": true }
     },
 
+    "replay": {
+      "replay_window_seconds": 2592000
+    },
+
+    "retention": {
+      "policy_summary": { "text": "What is retained, summarized, pruned, and for how long.", "lang": "en" }
+    },
+
     "export_and_fork": {
       "export_instructions": "url-or-instructions",
       "fork_policy": "url-or-text"
@@ -175,9 +189,12 @@ A ContextDeclaration body MUST include:
 
 #### Normative notes
 - `strictness.m_level` is a cultural/contract label; PVL is the executable validation floor.
-- `policies.*.artifact_hash` MUST reference immutable policy artifacts executed by NEXUS.
+- `policies.*` MUST reference immutable policy artifact hashes executed by NEXUS (see `nexus/NEXUS-POLICIES.md`).
+- `charters[]` establishes the set of charters this context intends to run; charter activation still requires adoption receipts (see WCL).
+- `replay.replay_window_seconds` MUST be declared so audits can know what “reconstructible” means for this context.
+- `retention.policy_summary` MUST be explicit; pruning/summarization actions MUST be logged as events/receipts so “no clean history” remains enforceable.
 - `membrane.pack_allowlist` and `template_allowlist_pvl3` MUST be enforced on imports (see §10).
-- ContextDeclarations MUST be versioned (`context_version`) and immutable once published (new versions are new artifacts).
+- ContextDeclarations MUST be versioned (`context_version`) and immutable once published. New versions are new artifacts.
 
 ### 4.3 High-impact action list (required)
 Each ContextDeclaration MUST define what actions are **high-impact** (require receipts/outcomes), including at minimum:
@@ -480,6 +497,14 @@ Contexts that store PII MUST:
 - key rotation/re-encryption (for members-only data),
 - retaining minimal audit traces with graduated disclosure.
 
+Minimum audit trace requirement (required):
+- Any suppression/redaction/erasure-relevant action MUST leave an immutable governance artifact (receipt/outcome) that:
+  - references the affected artifact hash(es),
+  - includes `context_id`, `issued_at`, and an attributable `issuer` (or privacy-safe role identifier),
+  - includes a public-facing rationale summary (which MAY be redacted),
+  - optionally links to an encrypted/restricted “deep record” for legitimate audits.
+- Redaction MAY hide sensitive details, but the existence of the action and its linkage to the affected artifact(s) MUST remain referenceable (“no clean history”).
+
 ### 11.3 PII search constraints (required)
 Directory contexts MUST ensure:
 - PII does not enter public/federated indexes,
@@ -512,7 +537,7 @@ Deep records may be restricted/encrypted, but the label must be public enough to
 ### 12.2 Recommended machine-readable label artifact
 Recommended:
 - `artifact_type = "NutritionLabel"`
-- generated as a derived artifact from ContextDeclaration + policy hashes (but published as a stable object for convenience).
+- generated as a derived artifact from ContextDeclaration + policy hashes (and MAY be persisted as a stable PRISM artifact for convenience, but remains derived/non-authoritative).
 
 ---
 
@@ -520,14 +545,15 @@ Recommended:
 
 ### 13.1 Context conformance (WKGC v0.1)
 A Knowledge Commons Context is conformant if it:
-1) Publishes a ContextDeclaration with required fields and policy pointers (§4).  
+1) Publishes a ContextDeclaration with required fields (including policy pointers, `charters[]`, and replay/retention declarations) (§4).  
 2) Uses receipts/outcomes for admission, suppression, policy adoption, and dispute outcomes (§6–§7).  
 3) Implements proposal → review → admission lanes (or equivalent) and does not default-index proposals (§7).  
 4) Enforces service/budget rules for high-impact actions (§8).  
 5) Enforces safety gating and prevents PII leakage (§9, §11).  
-6) Ensures discovery is plural, policy-driven, and explainable (§9).  
-7) Provides dispute and appeal pathways with anti-harassment controls (§4, §9).  
-8) Provides export/fork capability via Editions or equivalent (§10, §12).  
+6) Preserves minimum audit traces for suppression/redaction/retention actions and supports audits within the declared replay window (§11, §4).  
+7) Ensures discovery is plural, policy-driven, and explainable (§9).  
+8) Provides dispute and appeal pathways with anti-harassment controls (§4, §9).  
+9) Provides export/fork capability via Editions or equivalent (§10, §12).  
 
 ### 13.2 Node conformance (WKGC v0.1)
 A Node is conformant if it:
@@ -540,13 +566,15 @@ A Node is conformant if it:
 
 ## Appendix A — Recommended policy artifact types (informative)
 
-Contexts SHOULD adopt policy artifacts executed by NEXUS:
+Contexts SHOULD adopt policy artifacts executed by NEXUS (schemas in `nexus/NEXUS-POLICIES.md`):
 - `SafetyPolicy`
 - `QualityPolicy`
 - `RankingPolicy`
 - `AdmissionPolicy`
 - `ServicePolicy`
 - `IndexPolicy`
+- `ProjectionPolicy`
+- `IngestionPolicy`
 
 ---
 

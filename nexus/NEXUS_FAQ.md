@@ -1,9 +1,12 @@
 # NEXUS FAQ
+**NEXUS = Neutral Engine for eXecutable, User‑Scoped Search**
 **Applies to:** NEXUS v1.0  
-**Companion specs:** PRISM v1.0, PSR v0.1, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1  
+**Companion specs:** PRISM v1.0, PSR v0.1, NEXUS-POLICIES v0.1, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1  
 **Last updated:** 2025-12-26
 
 NEXUS is the execution engine for an online, governance-aware claim graph knowledgebase. This FAQ explains what NEXUS is, how it relates to PRISM/WEAVE/PSR, and how to implement or operate it.
+
+For normative policy schemas (Safety/Ranking/Quality/Admission/Service/Index/Projection/Ingestion), see `nexus/NEXUS-POLICIES.md`.
 
 ---
 

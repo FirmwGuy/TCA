@@ -1,7 +1,9 @@
 # The Weave Governance Constitution FAQ (Expanded)
+**WEAVE = Web of Evidence, Accountability, Versioning, Exit**
+
 **Version:** v0.2 (FAQ)  
 **Status:** Draft — explanatory; not normative  
-**Updated for:** PRISM v1 + NEXUS v1 + WKGC v0.1 + WEAVE Charter Library Addendum (WCL) v0.1  
+**Updated for:** PRISM v1 + NEXUS v1 + NEXUS-POLICIES v0.1 + WKGC v0.1 + WEAVE Charter Library Addendum (WCL) v0.1  
 **Last updated:** 2025-12-26
 
 > **This FAQ is not law.**  
@@ -74,7 +76,7 @@ Contexts publish a **Context Declaration**: the rules for *this* space (strictne
 ### 7) What is a Lens?
 A **Lens** is a user-facing “view configuration” over one or more contexts:
 - which context(s) are in scope,
-- which policies are active (safety gates, ranking gates),
+- which policies are active (Safety/Ranking/Quality/Admission/Service/Index/Projection/Ingestion; see `nexus/NEXUS-POLICIES.md` for schemas),
 - which index providers are used,
 - which trust anchors are accepted,
 - what visibility defaults apply.
@@ -88,7 +90,7 @@ Because without declarations:
 - and covert governance is indistinguishable from capture.
 
 ### 9) If a Context changes its rules, what happens?
-It should publish a **new version of its declaration** (new artifact) plus receipts that show:
+It should publish a **new version of its declaration** as a new artifact, plus receipts that show:
 - who changed it,
 - what changed,
 - why,
@@ -557,4 +559,3 @@ But PRISM+NEXUS provide practical machinery for:
 4) WCL v0.1 (Charter Library Addendum)  
 5) PRISM v1 (meaning + evidence + validation)  
 6) NEXUS v1 (execution + policy enforcement + discovery explanations)
-

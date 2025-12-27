@@ -1,10 +1,10 @@
-# PRISM v1.0 — Protocol for Verifiable Semantics and Claims
+# PRISM v1.0 — Protocol for Reproducible Interchange of Statements & Meanings
 **Status:** Draft for implementation  
 **Last updated:** 2025-12-26  
 **Audience:** implementers of semantic packs, claim/evidence publishers, validators, and downstream stores/indexers (e.g., fact graph engines)
 
 PRISM defines:
-- **canonical, content-addressed artifacts** for semantic meaning, claims, and evidence,
+- **canonical, content-addressed artifacts** for meanings, statements (Claims), and evidence,
 - a **machine-checkable definition discipline** for meanings (grounded definitional graphs),
 - an **evidence chain model** robust to link rot and adversarial media,
 - **verifiability levels** (PVL) that classify what can be mechanically verified about an artifact and its dependency closure.
@@ -897,7 +897,7 @@ To enable interoperability, ecosystems SHOULD publish and reuse shared packs for
 
 # Appendix B — Design invariants (non-normative)
 
-1) **Canonical vs derived:** only PRISM artifacts are canonical. Indexes/summaries/rankings are derived.  
+1) **Canonical vs derived:** PRISM artifacts are the canonical interchange units (content-addressed and immutable). Indexes/summaries/rankings are derived. Downstream stacks MAY persist derived outputs as PRISM artifacts for audit/convenience, but they remain derived and MUST be labeled as such (non-claims / non-authoritative).  
 2) **No silent meaning change:** evidence and discovery metadata must not change meaning unless explicitly incorporated.  
 3) **Grounding discipline:** PVL-2+ meaning definitions should be acyclic and rooted.  
 4) **Hash identity:** byte-level changes imply identity changes.  

@@ -9,7 +9,7 @@ This FAQ answers common questions for implementers and publishers working with P
 ## Getting started
 
 ### 1) What is PRISM, in one sentence?
-PRISM is a protocol for publishing **content-addressed, optionally signed artifacts** that encode **meanings**, **claims**, and **evidence chains**, with a **verifiability grade (PVL)** describing what can be mechanically checked.
+PRISM (the **Protocol for Reproducible Interchange of Statements & Meanings**) is a protocol for publishing **content-addressed, optionally signed artifacts** that encode **meanings**, **statements (Claims)**, and **evidence chains**, with a **verifiability grade (PVL)** describing what can be mechanically checked.
 
 ### 2) What does PRISM *not* do?
 PRISM does **not**:

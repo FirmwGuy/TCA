@@ -1,7 +1,8 @@
 # NEXUS v1.0 — Claim Graph Knowledgebase Runtime (Discovery + Projections + Ingestion)
+**NEXUS = Neutral Engine for eXecutable, User‑Scoped Search**
 **Status:** Draft for implementation 
 **Last updated:** 2025-12-26  
-**Companion specs:** PRISM v1.0, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1, **PSR v0.1**, **PSA v0.1**
+**Companion specs:** PRISM v1.0, WEAVE (Constitution + WCIC), WKGC v0.1, WCL v0.1, **NEXUS-POLICIES v0.1**, **PSR v0.1**, **PSA v0.1**
 
 ---
 
@@ -48,13 +49,15 @@ The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **
 - rankings,
 - previews/thumbnails,
 - page projections (HTML/Markdown),
-- candidate extraction outputs (CandidateBundles) *unless stored as artifacts by policy*,
+- candidate extraction outputs (CandidateBundles),
 - caches and feature vectors.
 
 Derived products MUST be:
 - discardable without loss of canonical meaning,
 - provenance-tagged to canonical inputs,
 - reconstructible within declared replay windows (where required by policy).
+
+Derived products MAY be persisted as PRISM artifacts for convenience/audit (e.g., CandidateBundles or snapshots), but they remain **derived** and MUST be clearly labeled as such (non-claims / non-authoritative).
 
 ### 2.2 Safety before relevance
 Discovery and projection MUST enforce:
@@ -99,6 +102,7 @@ Claims and ingestion outputs MUST be anchored to durable evidence objects:
 - **PSR:** PRISM Surface Realizer (deterministic renderer).
 - **PSA:** PRISM Semantic Analyzer (candidate extractor).
 - **CandidateBundle:** PSA output bundle containing candidate claims/entities/mappings, not canonical claims by itself.
+- **Persisted-derived artifact:** a derived product stored as a PRISM artifact for audit/convenience (e.g., CandidateBundle or snapshots), still derived/non-authoritative.
 - **Edition:** signed manifest listing artifact hashes (unit of federation/audit).
 - **IndexSnapshot:** auditable record of an index build.
 - **ProjectionSnapshot:** auditable record of a projection build.
@@ -123,6 +127,7 @@ Claims and ingestion outputs MUST be anchored to durable evidence objects:
 9) Prevent leakage of sensitive content into unauthorized indexes and projections.
 10) Implement projection pipeline(s) and provide deterministic rendering via PSR.
 11) Implement ingestion/extraction hooks for PSA outputs, routed to review lanes by default.
+12) Enforce authorship constraints required by TCA/WEAVE contexts (e.g., Human Commons canonical writes require an accountable human principal authorization/signature as defined by the context’s identity policy).
 
 ### 4.2 NEXUS MUST NOT
 - decide authority or legitimacy,
@@ -163,7 +168,7 @@ A conforming NEXUS implementation SHOULD include:
 11) Ingestion Runtime:
     - Evidence ingestion (source anchoring)
     - PSA runner (REQUIRED hook; PSA engine itself may be pluggable)
-    - CandidateBundle store (derived or canonical-by-policy)
+    - CandidateBundle store (derived; may be persisted as non-claim PRISM artifacts for audit)
     - Review queue integration (proposed/quarantine lanes)
 
 **Audit**
@@ -285,6 +290,10 @@ Ranking MUST:
 - include “why” explanations,
 - include policy hashes and index snapshot identity (if used).
 
+Ranking MUST also produce a stable total order:
+- ties MUST be broken deterministically (as specified by RankingPolicy),
+- and the final tie-breaker SHOULD be `artifact_hash` ascending.
+
 ---
 
 ## 11. Projection pipeline (pages) (normative)
@@ -303,6 +312,7 @@ NEXUS MUST support online pages built as projections from the semantic graph.
    - relevant governance outcomes (e.g., contestation),
    - evidence summaries,
    - pack entries for labels/relations.
+   - selection MUST be deterministic; ties in “importance” or eligibility MUST be broken deterministically (final tie-breaker SHOULD be `claim_hash` ascending).
 2) **Rendering**:
    - deterministic via PSR (REQUIRED),
    - optional AI renderer (OPTIONAL) if enabled and verified.
@@ -342,7 +352,7 @@ NEXUS is intended to grow from user-authored text and reports. Therefore, NEXUS 
 1) **Evidence anchoring** (canonical):
    - store the source bytes as an EvidenceSubstrate artifact (content-addressed),
    - record capture metadata and visibility/encryption.
-2) **PSA extraction** (derived or canonical-by-policy):
+2) **PSA extraction** (derived; may be persisted as non-claim PRISM artifacts for audit):
    - run PSA on the evidence substrate,
    - produce a CandidateBundle containing:
      - candidate claims,
@@ -400,13 +410,15 @@ NEXUS executes policy artifacts (PRISM artifacts) including:
 - `ServicePolicy`
 - `IndexPolicy`
 - `ProjectionPolicy`
-- **`IngestionPolicy` (NEW; recommended when PSA is used)**
+- `IngestionPolicy` — recommended when PSA is used
 
-All policies SHOULD share a common header (policy_id, version, kind, applies_to, effective_from, supersedes).
+Normative policy artifact schemas are defined in `nexus/NEXUS-POLICIES.md`.
+
+All policies SHOULD share a common header (`policy_id`, `policy_version`, `policy_kind`, `applies_to`, `effective_from`, `supersedes`).
 
 ---
 
-## 14. IngestionPolicy (normative)
+## 14. IngestionPolicy (normative; schema in NEXUS-POLICIES)
 
 ### 14.1 Purpose
 IngestionPolicy governs:
@@ -505,7 +517,7 @@ Returns:
 - safety bucket,
 - provenance (claim hashes that reference it, where applicable).
 
-### 15.6 Ingestion APIs (NEW)
+### 15.6 Ingestion APIs
 - `POST /ingest/text`
   - body: bytes or reference
   - returns: EvidenceSubstrate hash
@@ -518,6 +530,7 @@ Returns:
   - converts selected CandidateClaims into PRISM Claim artifacts and publishes them to a lane (default proposed)
   - MUST record evidence selectors and (recommended) a Derivation record of the conversion
   - MUST obey AdmissionPolicy and context floors
+  - in Human Commons contexts, MUST require an accountable human principal authorization/signature for any resulting governance-visible Claim publication (per TCA/WEAVE)
 
 ---
 
@@ -528,6 +541,7 @@ NEXUS MUST:
 - apply safety gating to previews and evidence excerpts,
 - treat executables as metadata-only unless policy permits further access,
 - respect suppression outcomes and restricted visibility in projections and ingestion review.
+- when automated agents access sensitive/delicate/can’t-be-unseen content, require a Sealed Access Dossier (SAD) or equivalent governed authorization (per TCA/WEAVE) where policy mandates it.
 
 ---
 
@@ -554,6 +568,7 @@ A NEXUS implementation is conformant to v1.0 if it:
 8) Implements PSA ingestion hooks producing CandidateBundles anchored to evidence selectors (required hook).  
 9) Defaults PSA outputs to proposed/quarantine and prevents default indexing of auto-extracted content.  
 10) Derives lane/status strictly from receipts/outcomes and editions (no mutable flags).  
+11) Enforces authorship constraints required by the active context/governance profile (e.g., Human Commons canonical Claim publications require an accountable human principal authorization/signature).  
 
 ---
 
@@ -564,6 +579,9 @@ If a context requires replayability, NEXUS SHOULD record:
 - ReplayRecord (query hash, lens hash, snapshot hash, result list hash)
 
 Replay windows and nondeterminism MUST be declared.
+
+Recommended determinism rule:
+- `result_list_hash` SHOULD be computed over the **ordered** result list after applying RankingPolicy tie-breakers (final tie-breaker `artifact_hash` ascending), so the same replay inputs yield the same list hash within the declared window.
 
 ---
 
